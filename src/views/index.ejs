@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bot Intagram</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .mensagem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .alerta {
+        margin-top: 15px;
+      }
+
+      .usar {
+        border: 2px solid rgb(226, 226, 226);
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <% if(message) { %>
+          <div class="alert alert-warning mt-5 mensagem" id="mensagem">
+            <p class="alerta"><%= message %></p>
+            <span id="btn">x</span>
+          </div>
+        <% } %>
+        <h1>Bot Para curtir ultimas fotos</h1>
+        <div class="usar mt-3">
+          <h3>
+            <i>Como usar</i>
+          </h3>
+          <p>
+            Como utilizar, colocar o nome das contas no campo abaixo
+            ex: joaozinho,mariazinha,paulinho. Todos juntos e separados
+            por virgula (,) e sem espaço entre eles.
+          </p>
+        </div>
+        <form action="/bot" method="post">
+          <input class="form-control mt-2" type="text" name="contas" placeholder="Digite as Contas">
+          <button class="btn btn-primary btn-block mt-2">INICIAR BOT CURTIDOR</button>
+        </form>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      let div = document.getElementById('mensagem')
+      let btn = document.getElementById('btn')
+      btn.style = 'cursor: pointer'
+      btn.addEventListener('click', () => {
+        div.style = 'display: none;'
+      })
+    </script>
+  </body>
+</html>
